@@ -12,7 +12,7 @@ class Formata
      */
     public static function email($email)
     {
-        return true; //TODO: Imprementar código
+        return true; //TODO: Imprementar cÃ³digo
     }
 
     /**
@@ -22,7 +22,7 @@ class Formata
      */
     public static function url($url)
     {
-        return true; //TODO: Imprementar código
+        return true; //TODO: Imprementar cÃ³digo
     }
 
     /**
@@ -33,6 +33,16 @@ class Formata
      */
     public static function data($data, $formato)
     {
-        return true; //TODO: Imprementar código
+        return true; //TODO: Imprementar cÃ³digo
+    }
+
+    /**
+     * Metodo respostavel por criptografar em hash a senha
+     * @param $senha
+     * @return string
+     */
+    public static function senha($senha)
+    {
+        return crypt($senha, '$2a$07$eisaqu/vidahuniversotudomais.');
     }
 }

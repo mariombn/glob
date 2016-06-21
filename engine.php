@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-//Defini visualização de erros de acordo com o modo Debug true ou false
+//Defini visualizaÃ§Ã£o de erros de acordo com o modo Debug true ou false
 if (!defined('DEBUG') || DEBUG === FALSE) {
     error_reporting(0);
     ini_set("display_errors", 0);
@@ -11,7 +11,7 @@ if (!defined('DEBUG') || DEBUG === FALSE) {
     ini_set("display_errors", 1);
 }
 
-//Define o número de parametros na URL
+//Define o nÃºmero de parametros na URL
 if (isset($_GET['path'])) {
     if (substr($_GET['path'], -1, 1) == '/') {
         $counturlpath = substr($_GET['path'], 0, -1);
@@ -33,7 +33,7 @@ if ($counturlpath) {
 
 define('REQUEST_PATH_BACK', $pathBack);
 
-//Obtem via URL amigavel o valor do path (caso não sejá informado, é definido index/index como padrão)
+//Obtem via URL amigavel o valor do path (caso nÃ£o sejÃ¡ informado, Ã© definido index/index como padrÃ£o)
 $_GET['path'] = (isset($_GET['path']) ? $_GET['path'] : 'index/index');
 
 //Separa o valor do controller do valor da action
@@ -42,11 +42,11 @@ $separatorPath = explode('/', $_GET['path']);
 //Define o controller
 $controller = ucfirst($separatorPath[0]) . 'Controller';
 
-//Define a action (caso não sejá informado, é definido index como padrão)
+//Define a action (caso nÃ£o sejÃ¡ informado, Ã© definido index como padrÃ£o)
 $action = (isset($separatorPath[1]) ? $separatorPath[1] : 'index');
 if ($action == '') $action = 'index';
 
-//Verificação de Parametros
+//VerificaÃ§Ã£o de Parametros
 $_PARA = Array();
 if (count($separatorPath) >= 3) {
     for ($separatorPathCount = 2; $separatorPathCount < count($separatorPath); $separatorPathCount++) {

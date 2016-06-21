@@ -1,6 +1,7 @@
 CREATE TABLE usuarios (
 	usua_id             INT UNSIGNED NOT NULL AUTO_INCREMENT,
 	usua_email          VARCHAR(200) NOT NULL,
+	usua_senha          VARCHAR(250) NOT NULL,
 	usua_nome           VARCHAR(100) NOT NULL,
 	usua_sobrenome      VARCHAR(250),
 	usua_nickname       VARCHAR(100) NOT NULL,
