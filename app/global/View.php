@@ -59,10 +59,10 @@ class View
     public function carregar($special = false)
     {
         if (!$special) {
-            //include APPPATH . '/public/includes/header.php';
-            //include APPPATH . '/includes/menu.php';
+            include APPPATH . '/public/includes/header.php';
+            include APPPATH . '/public/includes/menu.php';
             include APPPATH . '/public/View/' . $this->name . '.php';
-            //include APPPATH . '/public/includes/footer.php';
+            include APPPATH . '/public/includes/footer.php';
         } else {
             include APPPATH . '/public/View/' . $this->name . '.php';
         }
