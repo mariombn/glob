@@ -347,8 +347,6 @@ class Usuario
         $this->usua_senha_c = $usua_senha_c;
     }
 
-
-
     /**
      * @return boolean
      */
@@ -357,5 +355,30 @@ class Usuario
         return $this->entity;
     }
 
+    /**
+     * @param $password
+     */
+    public static function hash($password)
+    {
+        /*
+            // crypt:
+            // Variável com a senha guardada
+            $senha = "mypassword";
+            $criptografada = crypt($senha);
+            echo $criptografada;
+            ?>
 
+            Uma das vantagens da crypt é que, a cada hora
+            que você tentar gerar uma senha nova, o valor retornado
+            será diferente, o que não acontece com md5.
+
+            Observação:
+            Caso você precise fazer uma verificação de senhas, por exemplo,
+            deverá usar este código:
+
+            if(crypt($senhadigitada,$senhaguardada)) == $senhaguardada) echo "Login efetuado com sucesso";
+        */
+        //$salt = uniqid(mt_rand(), true);
+        return crypt($password, '');
+    }
 }

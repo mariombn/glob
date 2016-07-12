@@ -37,7 +37,7 @@ class View
      * Valores dinamicos que são passados para a View
      * @var String
      */
-    private $errorMsg = null;
+    private $errorMsg = array();
 
     /**
      * Construtor padrão.
@@ -76,6 +76,15 @@ class View
     public function __set($index, $value)
     {
         $this->vars[$index] = $value;
+    }
+
+    /**
+     * Define uma mensagem de erro para ser exibida na View
+     * @param $value
+     */
+    public function displayError($value)
+    {
+        $this->errorMsg[] = $value;
     }
 
     /**
