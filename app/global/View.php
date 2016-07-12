@@ -40,6 +40,12 @@ class View
     private $errorMsg = array();
 
     /**
+     * valores dinamicos que serão apresentados como mensagens no topo da View
+     * @var array
+     */
+    private $sucessMsg = array();
+
+    /**
      * Construtor padrão.
      * @param String $view
      * @return void
@@ -85,6 +91,15 @@ class View
     public function displayError($value)
     {
         $this->errorMsg[] = $value;
+    }
+
+    /**
+     * Define uma mensagem de erro para ser exibida na View
+     * @param $value
+     */
+    public function displayMensagem($value)
+    {
+        $this->sucessMsg[] = $value;
     }
 
     /**

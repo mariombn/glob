@@ -15,11 +15,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu de Opções<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Gerenciar Posts</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
+                            <li><a href="<?php echo HOME_PATH ?>categoria">Gerenciar Categorias</a></li>
+                            <li><a href="<?php echo HOME_PATH ?>post">Gerenciar Posts</a></li>
+                            <li><a href="<?php echo HOME_PATH ?>usuario">Gerenciar Usuários</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">Opções Gerais</a></li>
                         </ul>
                     </li>
                     <li><a href="<?php $this->link('usuario/sair') ?>">Sair</a></li>
@@ -42,6 +42,16 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 
 <div class="container">
+
+<!-- Controle de erros -->
+<?php if (count($this->sucessMsg) > 0): ?>
+    <?php $string_mensagem = implode("<br/>", $this->sucessMsg) ?>
+    <div class="row">
+        <div class="col-md-12">
+            <p class="bg-success"><?php echo $string_mensagem ?></p>
+        </div>
+    </div>
+<?php endif ?>
 
 <!-- Controle de erros -->
 <?php if (count($this->errorMsg) > 0): ?>
