@@ -1,7 +1,7 @@
 <hr>
 
 <footer>
-    <p>&copy; 2015 Company, Inc.</p>
+    <p><?php echo APP_COPYRIGHT ?></p>
 </footer>
 </div> <!-- /container -->
 

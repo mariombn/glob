@@ -38,12 +38,14 @@
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
+<br/><br/><br/>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="container">
 
 <!-- Controle de erros -->
 <?php if (count($this->errorMsg) > 0): ?>
     <?php $string_error = implode("<br/>", $this->errorMsg) ?>
-<br/><br/><br/>
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="alert alert-danger" role="alert">
@@ -53,7 +55,6 @@
             </div>
         </div>
     </div>
-</div>
 <?php endif ?>
 
 
