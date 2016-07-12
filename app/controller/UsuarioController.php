@@ -37,8 +37,10 @@ class UsuarioController
     {
         try {
             session_destroy();
-            //TODO: Precisa resolver problema do redirecionamento
             Funcoes::redirecionar(HOME_PATH);
+            unset($_SESSION['status']);
+            $view = new View('index/index');
+            $view->carregar();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
