@@ -22,6 +22,21 @@ class Categoria
             return true;
         }
     }
+
+    public function insert()
+    {
+        $sql = "INSERT INTO categorias (cate_nome, cate_descricao, cate_status)
+                VALUES (:cate_nome, :cate_descricao, :cate_status)";
+        $conexao = Database::getInstance()->prepare($sql);
+        $conexao->bindValue(':cate_nome', $this->getCateNome());
+        $conexao->bindValue(':cate_descricao', $this->getCateDescricao());
+        $conexao->bindValue(':cate_status', $this->getCateStatus());
+        if ($conexao->execute()) {
+            return true;
+        } else {
+            throw new Exception("Ocorreu um erro -[" . $conexao->errorCode() . "] - " . $conexao->errorInfo());
+        }
+    }
     
     public static function listar()
     {

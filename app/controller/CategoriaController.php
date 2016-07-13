@@ -29,7 +29,6 @@ class CategoriaController
     public function add($formsubmit)
     {
         try {
-
             $cate_nome = $formsubmit['cate_nome'];
             $cate_descricao = $formsubmit['cate_descricao'];
             $cate_status = $formsubmit['cate_status'];
@@ -40,12 +39,14 @@ class CategoriaController
             $categoria->setCateStatus($cate_status);
             $validacao = $categoria->validaEntidade();
             if (!is_array($validacao)) {
-
+                $categoria->insert();
+                $this->index();
             } else {
                 $view = new View('categoria/cadastrar');
+                $view->__set('post', $formsubmit);
                 $view->displayError($validacao);
+                $view->carregar();
             }
-            $view->carregar();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
