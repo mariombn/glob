@@ -10,14 +10,15 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-hover">
+        <br/>
+        <table class="table table-bordered">
             <thead>
-                <tr>
+                <tr class="info">
                     <th>#</th>
                     <th>Nome</th>
                     <th>Descrição</th>
-                    <th>Status</th>
-                    <th>Ação</th>
+                    <th align="center">Status</th>
+                    <th align="center">Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -28,8 +29,17 @@
                             <td><?php echo $categoria['cate_id'] ?></td>
                             <td><?php echo $categoria['cate_nome'] ?></td>
                             <td><?php echo $categoria['cate_descricao'] ?></td>
-                            <td><?php echo $categoria['cate_status'] ?></td>
-                            <td><?php echo $categoria['cate_id'] ?></td>
+                            <td width="120px" class="<?php echo ($categoria['cate_status'] == 'ativo') ? 'success' : 'danger' ?>">
+                                <?php if ($categoria['cate_status'] == 'ativo'): ?>
+                                    <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Ativo
+                                <?php else: ?>
+                                    <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span> Inativo
+                                <?php endif ?>
+                            </td>
+                            <td width="120px">
+                                <a href="editar/<?php echo $categoria['cate_id'] ?>" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                <a href="excluir/<?php echo $categoria['cate_id'] ?>" class="btn btn-default" aria-label="Left Align"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                            </td>
                         </tr>
                     <?php endforeach ?>
                 <?php else: ?>
@@ -39,5 +49,24 @@
                 <?php endif ?>
             </tbody>
         </table>
+    </div>
+</div>
+
+<!-- Modal de Edição -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal"></button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
 </div>
